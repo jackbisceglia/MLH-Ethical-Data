@@ -1,4 +1,4 @@
-def helpMenu(options) -> None:
+def helpMenu(options, history) -> None:
     # TODO: insert common use cases for CLI eventually
     menu =''' Usage:
     

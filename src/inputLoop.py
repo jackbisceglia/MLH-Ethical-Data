@@ -1,7 +1,8 @@
 from src.cliFunctionality.helpMenu import helpMenu
 
+
 # MAIN EVENT LOOP
-def mainLoop() -> None:
+def mainLoop(history) -> None:
     usrInput = ''
     terminate = False
 
@@ -12,7 +13,15 @@ def mainLoop() -> None:
             terminate = True
             continue
         
-        handleFlag(parseInput(usrInput))
+        # Add most recent input to history queue
+
+        if usrInput == '':
+            handleFlag(parseInput(history.get_most_recent()), history)
+        
+        else:
+            history.update(usrInput)
+
+            handleFlag(parseInput(usrInput), history)
     return
 
 # PARSE THE INPUT, ERROR CHECKING, and TOKENIZE INTO FLAG(S)
@@ -28,15 +37,15 @@ def parseInput(usrInput: str) -> str:
     return (tokens[1:])
 
 # HANDLE THE FLAGS PASSED IN
-def handleFlag(flag: str) -> None:
+def handleFlag(flag: str, history) -> None:
     type = flag[0]
     options = flag[1:]
     
     flags = {
-        'h': helpMenu
+        'h': helpMenu,
     }
 
-    flags[type](options)
+    flags[type](options, history)
 
 
 # ERROR HANDLING
