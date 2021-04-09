@@ -39,7 +39,7 @@ def openPorts(options, history) -> None:
 
     # check if the function was calld from inside closePorts
     if not options:
-        print("\n" + Fore.CYAN + "OPEN PORTS", Style.RESET_ALL)
+        print(Fore.CYAN + "OPEN PORTS", Style.RESET_ALL)
         print("-----------")
   
 
@@ -51,5 +51,5 @@ def openPorts(options, history) -> None:
                 print(Fore.GREEN, port, Style.RESET_ALL, ", ".join(port_data[port])) #print open port number
             allPorts.append(port)
         s.close() #close socket
-
+    print()
     return allPorts
