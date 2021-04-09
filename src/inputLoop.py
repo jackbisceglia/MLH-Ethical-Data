@@ -7,25 +7,25 @@ from src.cliFunctionality.funFacts import funFacts
 
 # MAIN EVENT LOOP
 def mainLoop(history) -> None:
-    usrInput = ''
+    usrInput = ""
     terminate = False
 
-    while (not terminate):
-        usrInput = str(input('> '))
+    while not terminate:
+        usrInput = str(input("> "))
         # CASE: Break in event of a 'q' or 'Q' entered
-        if usrInput.lower() == 'q':
+        if usrInput.lower() == "q":
             terminate = True
             continue
-        
+
         # Add most recent input to history queue
 
-        if usrInput == '':
+        if usrInput == "":
             mostRecent = history.get_recents()
             if len(mostRecent) == 0:
                 print("You must enter a command")
                 continue
 
-            st = ''
+            st = ""
             for idx, val in enumerate(mostRecent):
                 st += f"{idx + 1}: {val}\n"
 
@@ -35,50 +35,52 @@ def mainLoop(history) -> None:
             choice = int(input(prompt))
 
             handleFlag(parseInput(mostRecent[choice - 1]), history)
-        
+
         else:
             history.update(usrInput)
 
             handleFlag(parseInput(usrInput), history)
     return
 
+
 def getFlags() -> dict:
     return {
-        'h': helpMenu,
-        'help': helpMenu,
-        'o': openPorts,
-        'c': closePorts,
-        'l': listPorts,
-        'f': funFacts
+        "h": helpMenu,
+        "help": helpMenu,
+        "o": openPorts,
+        "c": closePorts,
+        "l": listPorts,
+        "f": funFacts,
     }
 
 
 # PARSE THE INPUT, ERROR CHECKING, and TOKENIZE INTO FLAG(S)
 def parseInput(usrInput: str) -> str:
-    tokens = usrInput.split(' ')
+    tokens = usrInput.split(" ")
     flags = getFlags()
-    
+
     # ERROR CASES
     if len(tokens) == 0:
-        handleError('nc')
+        handleError("nc")
         return
 
-    if tokens[0].upper() != 'MLH':
-        handleError('cnf')
-        return
-    
-    if tokens[1][0] != '-':
-        handleError('nf')
+    if tokens[0].upper() != "MLH":
+        handleError("cnf")
         return
 
-    tokens[1] = tokens[1].strip('-')
+    if tokens[1][0] != "-":
+        handleError("nf")
+        return
+
+    tokens[1] = tokens[1].strip("-")
 
     if not tokens[1] in flags:
-        handleError('fnf')
+        handleError("fnf")
         return
-    
+
     # error handle (future): unkown command
-    return (tokens[1:])
+    return tokens[1:]
+
 
 # HANDLE THE FLAGS PASSED IN
 def handleFlag(command: str, history) -> None:
@@ -93,7 +95,7 @@ def handleFlag(command: str, history) -> None:
 
 # ERROR HANDLING
 def handleError(type: str) -> None:
-    # CASES 
+    # CASES
     def invalid_caf():
         print("Invalid Inpt: Character(s) found after command")
 
@@ -111,11 +113,11 @@ def handleError(type: str) -> None:
 
     # HANDLING CASES
     options = {
-        'caf' : invalid_caf,
-        'caf' : invalid_caf,
-        'cn' : invalid_nc,
-        'nf' : invalid_nf,
-        'fne' : invalid_fne
+        "caf": invalid_caf,
+        "caf": invalid_caf,
+        "cn": invalid_nc,
+        "nf": invalid_nf,
+        "fne": invalid_fne,
     }
 
     # CASE TO CATCH UNHANDLED ERROR -> TO BE CHANGED LATER

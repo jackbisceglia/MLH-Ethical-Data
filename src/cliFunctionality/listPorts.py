@@ -16,14 +16,13 @@ all_ports = {
     143: "Internet Message Access Protocol (IMAP) Management of Digital Mail",
     161: "Simple Network Management Protocol (SNMP)",
     194: "Internet Relay Chat (IRC)",
-    443: "HTTP Secure (HTTPS) HTTP over TLS/SSL"
+    443: "HTTP Secure (HTTPS) HTTP over TLS/SSL",
 }
 
 
 def listPorts(options, history) -> None:
 
-    print(Fore.GREEN +  " PORTS " + Fore.RESET + "USE\n")
+    print(Fore.GREEN + " PORTS " + Fore.RESET + "USE\n")
     for i in all_ports:
-        print(Fore.GREEN + '{:5d}'.format(i) +  ": " + Fore.RESET + all_ports[i])
+        print(Fore.GREEN + "{:5d}".format(i) + ": " + Fore.RESET + all_ports[i])
     print()
-    
