@@ -17,6 +17,6 @@ You just need to navigate to the directory and run python3 main.py
 Python3
 
 # Collaborators 
--Jack
--Kshitijaa Jaglan
--Samuel
+- Jack
+- Kshitijaa Jaglan
+- Samuel
