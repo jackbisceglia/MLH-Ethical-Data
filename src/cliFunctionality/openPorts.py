@@ -6,7 +6,7 @@ from colorama import *
 init()
 
 
-def openPorts(options) -> None:
+def openPorts(options, history) -> None:
 
     pids = {}   # To store all the processes t be compared to connections
     port_data = {}  # To store the process info about stuff running on that port
