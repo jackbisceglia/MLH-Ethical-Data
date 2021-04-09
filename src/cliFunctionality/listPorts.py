@@ -25,5 +25,5 @@ def listPorts(options, history) -> None:
     print(Fore.GREEN +  " PORTS " + Fore.RESET + "USE\n")
     for i in all_ports:
         print(Fore.GREEN + '{:5d}'.format(i) +  ": " + Fore.RESET + all_ports[i])
-
+    print()
     
