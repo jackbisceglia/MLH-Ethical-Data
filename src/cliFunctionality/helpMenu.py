@@ -3,7 +3,7 @@ from colorama import *
 init()
 
 
-def helpMenu(options) -> None:
+def helpMenu(options, history) -> None:
     # TODO: insert common use cases for CLI eventually
     print(Fore.CYAN + Style.BRIGHT + 'Usage:')
     print(Style.BRIGHT + Fore.CYAN + 'General Usage:' + Style.RESET_ALL)

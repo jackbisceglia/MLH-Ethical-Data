@@ -1,8 +1,9 @@
 from src.cliFunctionality.helpMenu import helpMenu
 from src.cliFunctionality.openPorts import openPorts
 
+
 # MAIN EVENT LOOP
-def mainLoop() -> None:
+def mainLoop(history) -> None:
     usrInput = ''
     terminate = False
 
@@ -13,9 +14,29 @@ def mainLoop() -> None:
             terminate = True
             continue
         
-        parsed = parseInput(usrInput)
-        if parsed:
-            handleFlag(parsed)
+        # Add most recent input to history queue
+
+        if usrInput == '':
+            mostRecent = history.get_recents()
+            if len(mostRecent) == 0:
+                print("You must enter a command")
+                continue
+
+            st = ''
+            for idx, val in enumerate(mostRecent):
+                st += f"{idx + 1}: {val}\n"
+
+            prompt = "Enter the corresponding number: "
+
+            print(st)
+            choice = int(input(prompt))
+
+            handleFlag(parseInput(mostRecent[choice - 1]), history)
+        
+        else:
+            history.update(usrInput)
+
+            handleFlag(parseInput(usrInput), history)
     return
 
 def getFlags() -> dict:
@@ -54,14 +75,14 @@ def parseInput(usrInput: str) -> str:
     return (tokens[1:])
 
 # HANDLE THE FLAGS PASSED IN
-def handleFlag(command: str) -> None:
+def handleFlag(command: str, history) -> None:
     # Seperate flag from options
     options = command[1:]
     type = command[0]
     # Retreive flags from function above
     flags = getFlags()
 
-    flags[type](options)
+    flags[type](options, history)
 
 
 # ERROR HANDLING
