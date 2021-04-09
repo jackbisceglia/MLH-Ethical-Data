@@ -1,6 +1,7 @@
 from src.cliFunctionality.helpMenu import helpMenu
 from src.cliFunctionality.openPorts import openPorts
 from src.cliFunctionality.closePorts import closePorts
+from src.cliFunctionality.listPorts import listPorts
 
 # MAIN EVENT LOOP
 def mainLoop() -> None:
@@ -24,7 +25,8 @@ def getFlags() -> dict:
         'h': helpMenu,
         'help': helpMenu,
         'o': openPorts,
-        'c': closePorts
+        'c': closePorts,
+        'l': listPorts
     }
 
 
