@@ -16,7 +16,21 @@ def mainLoop(history) -> None:
         # Add most recent input to history queue
 
         if usrInput == '':
-            handleFlag(parseInput(history.get_most_recent()), history)
+            mostRecent = history.get_recents()
+            if len(mostRecent) == 0:
+                print("You must enter a command")
+                continue
+
+            st = ''
+            for idx, val in enumerate(mostRecent):
+                st += f"{idx + 1}: {val}\n"
+
+            prompt = "Enter the corresponding number: "
+
+            print(st)
+            choice = int(input(prompt))
+
+            handleFlag(parseInput(mostRecent[choice - 1]), history)
         
         else:
             history.update(usrInput)
