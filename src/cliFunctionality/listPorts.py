@@ -20,7 +20,7 @@ all_ports = {
 }
 
 
-def listPorts(options) -> None:
+def listPorts(options, history) -> None:
 
     for i in all_ports:
         print(Fore.GREEN + '{:5d}'.format(i) +  ": " + Fore.RESET + all_ports[i])

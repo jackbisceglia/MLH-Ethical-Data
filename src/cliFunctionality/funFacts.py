@@ -9,7 +9,7 @@ all_ports = [
 ]
 
 
-def funFacts(options) -> None:
+def funFacts(options, history) -> None:
 
     rand = random.choice(all_ports)
     print(Fore.GREEN + "> " + Fore.RESET + rand + "\n")
