@@ -1,8 +1,8 @@
 # MLH-Ethical-Data
-A Terminal App to monitor the data going in and out from your system.
+Creating a simple port scanner to check the open ports in your system, close them along with options to view random cool facts related to them by a simple flag.
 
 # Reason Behind Creating MLH-Ethical-Data?
-It's always important to see and know what type of server or port is running on your Local PC, so we came up with an idea to create a python program that helps people see and know what server or port is running on their Local PC. Since Ethical Data involves protecting your data and also know where your data is been used, it's a very nice imlementation from us.
+This tool is good for beginners in cyber security who just want to see what all processes run on different ports and experiment with them. We have also implemented required precautions to prevent accidental closing of an essential system process through an aesthetically pleasing CLI
 
 # What Can MLH-Ethical-Data Do?
 - Check open ports
