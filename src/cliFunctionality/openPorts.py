@@ -7,57 +7,46 @@ init()
 
 
 def openPorts(options) -> None:
-    # TODO: insert common use cases for CLI eventually
 
-    data = {}
+    pids = {}   # To store all the processes t be compared to connections
+    port_data = {}  # To store the process info about stuff running on that port
+    allPorts = []   # To store all the ports to be returned
 
-    pids = {}
+    ip = '127.0.0.1'  #getting ip-address of host
+
+
+
+    # Loop through all the processes
     for p in psutil.process_iter():
         try:
             name = p.name()
-            # print(name)
             pids[p.pid] = name
-            data[name] = {'process': p}
         except(psutil.NoSuchProcess, psutil.ZombieProcess):
             pass
 
+
+    # Loop through all the conenctions
     connections = psutil.net_connections()
-
     for con in connections:
-        if con.pid in pids and con.laddr[1]:
-            print(Fore.GREEN + str(con.laddr[1]), " : ", Style.RESET_ALL + str(pids[con.pid]), )
+        this_id = con.laddr[1]
+        if con.pid in pids and this_id:
+            try:
+                port_data[this_id].add(str(pids[con.pid]))
+            except KeyError:
+                port_data[this_id] = {str(pids[con.pid])}
 
 
-    print("\n-----------\n")
+
+    print("\n" + Fore.CYAN + "OPEN PORTS", Style.RESET_ALL)
+    print("-----------")
   
-    ip = '127.0.0.1'  #getting ip-address of host
-    
+
+    # Loop through all the ports
     for port in range(1024, 65535):      #check for all available ports
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         if not s.connect_ex(('127.0.0.1', port)):
-            print('[OPEN] Port open :' + Fore.GREEN, port, Style.RESET_ALL) #print open port number
-    
+            print(Fore.GREEN, port, Style.RESET_ALL, ", ".join(port_data[port])) #print open port number
+            allPorts.append(port)
+        s.close() #close socket
 
-        # try:
-    
-        #     serv = socket.socket(socket.AF_INET,socket.SOCK_STREAM) # create a new socket
-    
-        #     serv.bind((ip,port)) # bind socket with address
-                
-        # except:
-    
-        #     print('[OPEN] Port open :',port) #print open port number
-    
-        s.close() #close connection
-
-
-    # menu =''' Usage:
-    
-    # General Usage:
-    # mlh -command [<optional-argument>]
-    # my_program [<optional-argument>]
-        
-    # Popular Usage:
-    # '''
-
-    # print(menu)
+    return allPorts
