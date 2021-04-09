@@ -31,9 +31,9 @@ def closePorts(options) -> None:
                             closed = 0
                     
         if closed == 1:
-            print(Fore.GREEN + 'Success: ' +  Fore.RESET, "Port", port, "closed successfully\n")
-        elif not closed:
             print(Fore.RED + 'Error: ' +  Fore.RESET, "There was an error in closing the port", port, "\n")
+        elif not closed:
+            print(Fore.GREEN + 'Success: ' +  Fore.RESET, "Port", port, "closed successfully\n")
         else:
             print(Fore.RED + 'Error: ' +  Fore.RESET, "Either the port is not open, or is running a system process\n")
 
