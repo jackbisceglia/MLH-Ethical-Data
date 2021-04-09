@@ -1,3 +1,4 @@
+![unknown](https://user-images.githubusercontent.com/39042025/114224962-0026fd80-992f-11eb-87f6-483f8066b569.png)
 # MLH-Ethical-Data
 Creating a simple port scanner to check the open ports in your system, close them along with options to view random cool facts related to them by a simple flag.
 
