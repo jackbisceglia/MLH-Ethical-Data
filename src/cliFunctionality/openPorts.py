@@ -37,15 +37,18 @@ def openPorts(options) -> None:
 
 
 
-    print("\n" + Fore.CYAN + "OPEN PORTS", Style.RESET_ALL)
-    print("-----------")
+    # check if the function was calld from inside closePorts
+    if not options:
+        print("\n" + Fore.CYAN + "OPEN PORTS", Style.RESET_ALL)
+        print("-----------")
   
 
     # Loop through all the ports
     for port in range(1024, 65535):      #check for all available ports
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         if not s.connect_ex(('127.0.0.1', port)):
-            print(Fore.GREEN, port, Style.RESET_ALL, ", ".join(port_data[port])) #print open port number
+            if not options:
+                print(Fore.GREEN, port, Style.RESET_ALL, ", ".join(port_data[port])) #print open port number
             allPorts.append(port)
         s.close() #close socket
 
