@@ -1,4 +1,6 @@
+
 ![unknown (3)](https://user-images.githubusercontent.com/39042025/114225289-627ffe00-992f-11eb-9954-aab5823995b8.png)
+
 # MLH-Ethical-Data
 Creating a simple port scanner to check the open ports in your system, close them along with options to view random cool facts related to them by a simple flag.
 
@@ -10,6 +12,7 @@ This tool is good for beginners in cyber security who just want to see what all 
 - Close ports -- warnings for system ports
 - Get a random fact about security concerns through ports
 - Check the scope of accessibility of ports (not implemented yet but trying)
+- 
 ![unknown](https://user-images.githubusercontent.com/39042025/114224962-0026fd80-992f-11eb-87f6-483f8066b569.png)
 
 # How can MLH-Ethical-Data be used?
@@ -22,3 +25,5 @@ Python3
 - Jack
 - Kshitijaa Jaglan
 - Samuel
+
+![unknown (2)](https://user-images.githubusercontent.com/39042025/114225442-8b07f800-992f-11eb-8a1e-f7c022217314.png)
