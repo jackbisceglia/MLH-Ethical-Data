@@ -2,9 +2,7 @@ from colorama import *
 
 init()
 
-
 def helpMenu(options, history) -> None:
-    # TODO: insert common use cases for CLI eventually
     print(Style.BRIGHT + Fore.CYAN + "General Usage:" + Style.RESET_ALL)
     print(Fore.RED + "mlh -command " + Fore.GREEN + "[<optional-argument>]")
     print(Fore.RED + "my_program " + Fore.GREEN + "[<optional-argument>]")
@@ -30,5 +28,3 @@ def helpMenu(options, history) -> None:
         + Fore.RESET
         + "View a random fact about port security\n"
     )
-
-    # print(menu)
