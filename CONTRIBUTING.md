@@ -1,6 +1,5 @@
 # Ethical Data: Port Scanner
-[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-pull-requests.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/fixed-bugs.svg)](https://forthebadge.com)
 
 ## Contribution Guidelines
 If the badges above didn't tell you yet, we are welcome to contributions from anyone and everyone!! If you want to add an extra feature, report/fix a bug, add an easter egg, write documentation or practically anything which popped up in your mind, feel free to reach out to us to discuss incorporating it in this repo
